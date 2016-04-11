@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
-
+#import "PulseLoader.h"
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UISlider *pgView;
 
 @end
 
@@ -17,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    PulseLoader *loader = [[PulseLoader alloc] initWithFrame:CGRectMake(0, 0, 100, 100) color:[UIColor greenColor]];
+    
+    loader.center = self.view.center;
+    [self.view addSubview:loader];
+    
+    [loader startToPulse];
 }
 
 - (void)didReceiveMemoryWarning {
